@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
+@theme {
+  --color-condor-red: #D71920;
+  --color-condor-blue: #002D5C;
+  --color-enterprise-bg: #F3F6F8;
+  --color-enterprise-card: #FFFFFF;
+  --color-enterprise-text: #191919;
+  --color-enterprise-muted: #666666;
+  
+  --font-display: "Clash Display", "Inter", sans-serif;
+  
+  --radius-linkedin: 8px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #F3F6F8;
+  --foreground: #191919;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F3F6F8 !important;
+  color: #191919;
+  font-family: var(--font-display);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Enterprise Utilities */
+.card-shadow {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.enterprise-grid {
+  background-image: radial-gradient(#002D5C 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.tv-optimized {
+  font-size: 1.125rem;
+}
+
+@media (min-width: 1920px) {
+  .tv-optimized {
+    font-size: 1.5rem;
+  }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.status-badge {
+  @apply px-2 py-0.5 rounded-full text-[0.6rem] font-bold uppercase;
 }
