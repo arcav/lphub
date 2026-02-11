@@ -28,7 +28,7 @@ export default function SiteCard({ site, index }: SiteCardProps) {
       className="group relative w-full aspect-[4/5] bg-white border border-black/5 rounded-linkedin overflow-hidden flex flex-col p-0 card-shadow hover:shadow-2xl transition-all duration-500"
     >
       {/* Visual Header / Site Preview */}
-      <div className="h-1/2 w-full bg-slate-100 overflow-hidden relative border-b border-black/[0.03]">
+      <div className="h-[60%] w-full bg-slate-100 overflow-hidden relative border-b border-black/[0.03]">
            <div className="relative w-full h-full">
              {/* Main Screenshot/Image */}
              <div className="absolute inset-0 bg-slate-100">
@@ -71,25 +71,21 @@ export default function SiteCard({ site, index }: SiteCardProps) {
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 p-8 flex flex-col">
-        <div className="flex-1">
-          <div className="flex justify-between items-start mb-4">
-             <span className="text-condor-blue font-black tracking-[0.2em] text-[0.6rem] uppercase">
-                {site.production === "Interno" ? "Projeto Interno" : `Caso ${site.production}`}
-             </span>
+      <div className="flex-1 p-6 flex flex-col justify-between">
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="flex justify-between items-center mb-2">
+            
              <span className="text-enterprise-muted text-[0.6rem] font-bold">#{String(index + 1).padStart(2, '0')}</span>
           </div>
           
-          <h2 className="text-3xl font-black text-enterprise-text leading-none tracking-tighter mb-4 group-hover:text-condor-blue transition-colors">
+          <h2 className="text-2xl font-black text-enterprise-text leading-none tracking-tighter group-hover:text-condor-blue transition-colors">
             {site.name}
           </h2>
           
-          <p className="text-enterprise-muted text-sm leading-relaxed mb-6 line-clamp-3 font-medium">
-            {site.description}
-          </p>
+        
         </div>
 
-        <div className="flex items-center justify-between pt-6 border-t border-black/5">
+        <div className="flex items-center justify-between pt-4 border-t border-black/5 mt-4">
            <div className="flex flex-col">
               
               <div className="relative h-8 w-24">
