@@ -11,6 +11,8 @@
   --font-display: "Clash Display", "Inter", sans-serif;
   
   --radius-linkedin: 8px;
+  
+  --breakpoint-3xl: 2560px;
 }
 
 :root {

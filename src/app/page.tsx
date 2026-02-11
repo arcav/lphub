@@ -51,8 +51,8 @@ export default function Home() {
         </header>
 
         {/* Área da Grade de Projetos - Aproveita todo o espaço */}
-        <div className="flex-1 p-[4vw]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="flex-1 p-[4vw] w-full max-w-[2560px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-8">
             {sitesData.map((site, index) => (
               <div key={index} className="flex justify-center">
                 <SiteCard site={site} index={index} />
