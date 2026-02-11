@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
-@theme {
+/* AGGRESSIVE COMPATIBILITY MODE: Removed @theme to prevent modern CSS variable generation */
+/* Manually defining variables in :root using standard HEX/RGB */
+
+:root {
+  /* Manual Theme Definition - No @theme block to avoid Tailwind v4 modern outputs */
   --color-condor-red: #D71920;
   --color-condor-blue: #002D5C;
   --color-enterprise-bg: #F3F6F8;
@@ -13,9 +17,7 @@
   --radius-linkedin: 8px;
   
   --breakpoint-3xl: 2560px;
-}
 
-:root {
   --background: #F3F6F8;
   --foreground: #191919;
 }
