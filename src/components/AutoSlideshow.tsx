@@ -163,33 +163,38 @@ export default function AutoSlideshow({ sites }: AutoSlideshowProps) {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-3xl xl:text-4xl font-black text-enterprise-text leading-[0.9] tracking-tighter">
-                    {currentSite.name}
-                  </h2>
+                <div className="flex items-center justify-between mb-8">
+                  {/* Replaced Name with Logo */}
+                  <div className="w-full h-32 relative flex items-center justify-start">
+                    <img 
+                      src={currentSite.thumbnail} 
+                      alt={currentSite.name}
+                      className="max-h-full max-w-full object-contain filter drop-shadow-md"
+                    />
+                  </div>
                 </div>
 
-                <p className="text-sm xl:text-base text-enterprise-muted font-medium leading-relaxed mb-8">
-                  {currentSite.description}
-                </p>
+                <div className="space-y-6">
+                  <p className="text-sm xl:text-base text-enterprise-muted font-medium leading-relaxed">
+                    {currentSite.description}
+                  </p>
 
-                {/* Extended Metadata Table */}
-                <div className="space-y-6 pt-10 border-t border-black/5">
-                  <div className="grid grid-cols-2 gap-8">
+                  {/* Extended Metadata Table */}
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-6 pt-6 border-t border-black/5">
                     <div className="flex flex-col">
                       <p className="text-[0.6rem] font-black text-enterprise-muted uppercase tracking-widest mb-1.5 opacity-60">Empresa</p>
-                      <p className="text-base xl:text-lg font-black text-condor-blue">{currentSite.company}</p>
+                      <p className="text-sm xl:text-base font-black text-condor-blue">{currentSite.company}</p>
                     </div>
                     <div className="flex flex-col">
                       <p className="text-[0.6rem] font-black text-enterprise-muted uppercase tracking-widest mb-1.5 opacity-60">Produção</p>
-                      <p className="text-base xl:text-lg font-black text-[#191919]">{currentSite.production === "Interno" ? "Time Interno" : "Agência Parceira"}</p>
+                      <p className="text-sm xl:text-base font-black text-[#191919]">{currentSite.production === "Interno" ? "Time Interno" : "Agência Parceira"}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <div className="flex items-center gap-4 py-8">
+                <div className="flex items-center gap-4 py-6">
                   <div className="flex-1 h-px bg-black/10" />
                   <span className="text-[0.65rem] font-black text-enterprise-muted uppercase tracking-widest">
                     {index + 1} / {sites.length}
