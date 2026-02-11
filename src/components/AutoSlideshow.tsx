@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ArrowRight, ArrowLeft, Loader2 } from "lucide-react";
+import { useIsTV } from "@/hooks/useIsTV";
 
 interface Site {
   name: string;
@@ -45,9 +46,12 @@ export default function AutoSlideshow({ sites }: AutoSlideshowProps) {
     };
   }, [index, sites.length]);
 
+  const isTV = useIsTV();
+  
+  // Simplified transition for TV
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
+      x: isTV ? 0 : (direction > 0 ? "100%" : "-100%"),
       opacity: 0,
     }),
     center: {
@@ -57,7 +61,7 @@ export default function AutoSlideshow({ sites }: AutoSlideshowProps) {
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? "100%" : "-100%",
+      x: isTV ? 0 : (direction < 0 ? "100%" : "-100%"),
       opacity: 0,
     }),
   };
@@ -66,12 +70,12 @@ export default function AutoSlideshow({ sites }: AutoSlideshowProps) {
 
   return (
     <div className="relative w-full h-full bg-[#191919] overflow-hidden">
-      {/* Progress Bar Header */}
+      {/* Progress Bar Header - Simplified for TV */}
       <div className="absolute top-0 left-0 w-full h-1.5 bg-white/10 z-[60]">
         <motion.div 
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
-          transition={{ ease: "linear", duration: 0.05 }}
+          transition={{ ease: "linear", duration: isTV ? 0.2 : 0.05 }}
           className="h-full bg-condor-red"
         />
       </div>
@@ -84,10 +88,13 @@ export default function AutoSlideshow({ sites }: AutoSlideshowProps) {
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 200, damping: 30 },
-            opacity: { duration: 0.4 }
-          }}
+          transition={isTV ? 
+            { opacity: { duration: 0.5 } } : 
+            {
+              x: { type: "spring", stiffness: 200, damping: 30 },
+              opacity: { duration: 0.4 }
+            }
+          }
           className="absolute inset-0 flex flex-col lg:flex-row"
         >
           {/* Site Demo Content (Simulation/Iframe) */}
@@ -127,8 +134,8 @@ export default function AutoSlideshow({ sites }: AutoSlideshowProps) {
                     src={currentSite.screenshot || currentSite.thumbnail} 
                     alt={currentSite.name}
                     initial={{ y: "0%" }}
-                    animate={{ y: "-66%" }}
-                    transition={{ duration: 15, ease: "linear", repeat: 0 }}
+                    animate={isTV ? { y: "0%" } : { y: "-66%" }}
+                    transition={isTV ? {} : { duration: 15, ease: "linear", repeat: 0 }}
                     className="w-full min-h-full object-cover object-top"
                   />
                   {/* Subtle Gradient Overlay for depth */}

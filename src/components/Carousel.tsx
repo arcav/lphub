@@ -5,6 +5,8 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import SiteCard from "./SiteCard";
 import sitesData from "@/data/sites.json";
 
+import { useIsTV } from "@/hooks/useIsTV";
+
 interface Site {
   name: string;
   company: string;
@@ -19,9 +21,11 @@ export default function Carousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
   const dragX = useMotionValue(0);
+  const isTV = useIsTV();
   
   // Physics configuration for professional enterprise feel
-  const springConfig = { damping: 30, stiffness: 150, mass: 0.2 };
+  // TV: Stiffer, less bouncy for performance
+  const springConfig = isTV ? { damping: 40, stiffness: 300, mass: 1 } : { damping: 30, stiffness: 150, mass: 0.2 };
   const x = useSpring(dragX, springConfig);
 
   useEffect(() => {
