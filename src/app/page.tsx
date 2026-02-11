@@ -13,7 +13,7 @@ export default function Home() {
       {/* Layout de Conteúdo Principal */}
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Seção de Cabeçalho */}
-        <header className="px-[5vw] pt-12 pb-8 flex justify-between items-end border-b border-black/[0.03] bg-white/50 backdrop-blur-md sticky top-0 z-40">
+        <header className="px-[5vw] pt-12 pb-8 flex justify-between items-end bg-transparent z-40">
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-4">
               <div className="w-12 h-1 bg-condor-red" />
