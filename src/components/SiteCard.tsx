@@ -91,7 +91,7 @@ export default function SiteCard({ site, index }: SiteCardProps) {
 
         <div className="flex items-center justify-between pt-6 border-t border-black/5">
            <div className="flex flex-col">
-              <p className="text-[0.6rem] font-bold text-enterprise-muted uppercase tracking-widest mb-2">Empresa</p>
+              
               <div className="relative h-8 w-24">
                 <Image 
                   src={site.thumbnail} 
