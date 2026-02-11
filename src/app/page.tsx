@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SiteCard from "@/components/SiteCard";
 import sitesData from "@/data/sites.json";
 import { Play } from "lucide-react";
@@ -17,11 +18,19 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <div className="w-12 h-1 bg-condor-red" />
               <h1 className="text-sm font-black text-condor-blue uppercase tracking-[0.4em]">
-                Grupo Zonta
+                <div className="relative h-8 w-32">
+                  <Image 
+                    src="/logos/Logo-Grande.png" 
+                    alt="Condor" 
+                    fill 
+                    className="object-contain object-left"
+                    priority
+                  />
+                </div>
               </h1>
             </div>
             <p className="text-5xl font-black text-[#191919] leading-none tracking-tighter">
-              Portfólio <span className="text-condor-blue">Digital 2025</span>
+              LPHUB <span className="text-condor-blue"> 2026</span>
             </p>
           </div>
           
@@ -34,7 +43,11 @@ export default function Home() {
               Iniciar Apresentação (Auto)
             </Link>
             
-            
+            <div className="hidden xl:flex items-center gap-4 bg-white px-6 py-3 rounded-full border border-black/5 shadow-sm">
+               <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
+               
+            </div>
+          </div>
         </header>
 
         {/* Área da Grade de Projetos - Aproveita todo o espaço */}
