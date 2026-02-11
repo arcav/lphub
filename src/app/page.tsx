@@ -34,13 +34,7 @@ export default function Home() {
               Iniciar Apresentação (Auto)
             </Link>
             
-            <div className="hidden xl:flex items-center gap-4 bg-white px-6 py-3 rounded-full border border-black/5 shadow-sm">
-               <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-               <span className="text-[0.7rem] font-black text-condor-blue uppercase tracking-widest">
-                  LG 50&quot; UM7500PSB | Terminal Ativo
-               </span>
-            </div>
-          </div>
+            
         </header>
 
         {/* Área da Grade de Projetos - Aproveita todo o espaço */}
@@ -57,10 +51,7 @@ export default function Home() {
         {/* Rodapé de Navegação */}
         <footer className="px-[5vw] py-12 flex justify-between items-center border-t border-black/5 bg-white/30">
           <div className="flex gap-16 items-center">
-            <div className="flex flex-col">
-               <p className="text-[0.65rem] font-black text-condor-blue uppercase tracking-widest mb-1">Visão Geral</p>
-               <p className="text-[0.75rem] text-enterprise-muted uppercase font-bold tracking-widest">Mostrando todos os {sitesData.length} projetos institucionais</p>
-            </div>
+            
           </div>
           
           <div className="text-right">
